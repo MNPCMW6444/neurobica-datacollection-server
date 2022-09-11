@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://admin.flexboxtorchy.com", "http://localhost:3000"],
+    origin: ["https://braindata.flexboxtorchy.com", "http://localhost:3000"],
     credentials: true,
   })
 );
