@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
-  {},
+const yoadSchema = new mongoose.Schema(
+  {
+    stringified: String,
+    name: String,
+  },
 
   {
     timestamps: true,
   }
 );
 
-const User = mongoose.model("user", userSchema);
+const Yoad = mongoose.model("yoad", yoadSchema);
 
-module.exports = User;
+module.exports = Yoad;

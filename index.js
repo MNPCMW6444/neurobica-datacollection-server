@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const User = require("./models/museDataMocel");
+const Yoad = require("./models/museDataMocel");
 
 dotenv.config();
 
@@ -41,10 +41,12 @@ mongoose.connect(
 
 app.post("/savedata", async (req, res) => {
   try {
-    const { datadata } = req.body;
+    const { datadata, name } = req.body;
 
-    const editItem = new User(datadata);
-
+    const editItem = new Yoad({
+      stringified: JSON.stringify(datadata),
+      name: name,
+    });
     await editItem.save();
 
     res.json({});
