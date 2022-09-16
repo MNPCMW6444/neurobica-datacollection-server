@@ -14,7 +14,11 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://braindata.flexboxtorchy.com", "http://localhost:3000"],
+    origin: [
+      "https://braindata.flexboxtorchy.com",
+      "https://braindatacheck.flexboxtorchy.com",
+      "http://localhost:3000",
+    ],
     credentials: true,
   })
 );
@@ -50,6 +54,17 @@ app.post("/savedata", async (req, res) => {
     await editItem.save();
 
     res.json({});
+  } catch (err) {
+    console.log(err);
+    res.status(500).send();
+  }
+});
+
+app.get("/num", async (req, res) => {
+  try {
+    const a = await Yoad.find();
+
+    res.send(a.length);
   } catch (err) {
     console.log(err);
     res.status(500).send();
