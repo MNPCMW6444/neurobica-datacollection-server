@@ -64,7 +64,7 @@ app.get("/num", async (req, res) => {
   try {
     const a = await Yoad.find();
 
-    res.send(a.length);
+    res.json({ r: a.length });
   } catch (err) {
     console.log(err);
     res.status(500).send();
